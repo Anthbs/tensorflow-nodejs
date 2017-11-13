@@ -31,6 +31,7 @@ if (!fs.existsSync('./tensorflow')) {
     }
     if (EXT_NAME === '.zip') {
       res.pipe(unzip.Extract({ path: './tensorflow' }));
+      res.pipe(unzip.Extract({ path: './tensorflow/c' }));
     } else {
       res.pipe(gunzip()).pipe(tar.extract('./tensorflow'));
     }
